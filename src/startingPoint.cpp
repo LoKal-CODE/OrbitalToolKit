@@ -10,6 +10,7 @@ int main()
     //
     float spacecraft_mass; // in kgs
     float orbit_altitude;  // in meters 
+    const int R_EARTH = 3e5;
     
     return 0;
 
