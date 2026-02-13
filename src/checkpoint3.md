@@ -26,3 +26,6 @@
         - a_transfer = (r_1 + r_2) / 2 
         - T_transfer = pi * sqrt( a^3 / G*M )
         - Inputs: Initial radius r_1, Final radius r_2, ( Central body Gravitatonal constant G, Central body mass M ) v_orb if stored as a varable
+
+    - Sources:
+        - https://en.wikipedia.org/wiki/Orbital_elements
