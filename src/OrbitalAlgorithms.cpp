@@ -9,6 +9,8 @@
 #include <iostream>
 #include <iomanip>
 
+#define PI 3.14159265358979323846 
+
 using namespace std;
 
 // Vis-Viva function
@@ -60,9 +62,18 @@ double burn2DeltaV(double targetVelo, double transferApoapsisVelo)
     return deltaV2;
 }
 
-// Total delta-v for the manuver
+// Total delta-v for the manuver incl. intial/departure burn and arrival burn
 double totalDeltaV(double burn1DeltaV, double burn2DeltaV)
 {
     double deltaVTotal = burn1DeltaV + burn2DeltaV;
     return deltaVTotal;
 }
+
+// Transfer time
+double transferTime(double semiMajorAxis, double G, double planetMass)
+{
+    double time = PI * sqrt( (pow(semiMajorAxis, 3)) / (G * planetMass) );
+    return time;
+}
+
+
