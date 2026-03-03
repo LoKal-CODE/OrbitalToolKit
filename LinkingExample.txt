@@ -1,0 +1,3 @@
+g++ main.cpp src/planet.cpp -Iinclude   
+
+the above line is an example of how to compile main.cpp, linking the planet.cpp file from its directory, and can be expanded to include the other files that I will need to link as the project grows
