@@ -7,7 +7,7 @@
 
 #include <cmath>
 
-#include "orbital.h"
+#include "../include/orbital.h"
 
 #define PI 3.14159265358979323846 
 

@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
     
     int userDecision;
     // Determine user desired operation
-    cout << "Please choose a calculation to perform: (1) 2-Burn Hohmann Transfer (2) **to be implemented** (3) **to be implemented** (4) Exit Program \n";
+    cout << "Please choose a calculation to perform: (1) 2-Burn Hohmann Transfer (2) Exit Program \n";
     cin >> userDecision;
 
     switch (userDecision) {
@@ -21,14 +21,6 @@ int main(int argc, char* argv[])
             break;
         
         case 2:
-            // do another thing
-            break;
-
-        case 3:
-            // do in
-            break;
-
-        case 4:
             cout << "Thank you for using OrbitalToolKit, goodbye!\n";
             return 0;
             break;
