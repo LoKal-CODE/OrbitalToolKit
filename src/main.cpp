@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 #include "../include/orbital.h"
 
@@ -10,6 +11,8 @@ int main(int argc, char* argv[])
 {
     
     int userDecision;
+    string userFile;
+    ifstream userDataFile;
     // Determine user desired operation
     cout << "Please choose a calculation to perform: (1) 2-Burn Hohmann Transfer (2) Exit Program \n";
     cin >> userDecision;
@@ -17,7 +20,10 @@ int main(int argc, char* argv[])
     switch (userDecision) {
     
         case 1:
-            // do the thing
+
+            // take in user file to store in userDataFile
+             
+            
             break;
         
         case 2:
