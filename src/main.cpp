@@ -3,8 +3,9 @@
 #include <fstream>
 
 #include "../include/orbital.h"
+#include "../include/planet.h"
 
-#define DATA_ELEMENTS_LEN 5
+#define DATA_ELEMENTS_LEN 7
 
 using namespace std;
 
@@ -40,8 +41,11 @@ int main(int argc, char* argv[])
 
     // variables that deal with the elements of the data file
     string spacecraftName;
-    int spacecraftMass;
-    q
+    double spacecraftMass;
+    double currOrbitalRadius_km;
+    string currentOrbitingBody;
+    double currOrbitEccentricity;
+    double currOrbitInclination;
 
     // Determine user desired operation
     cout << "Please choose a calculation to perform: (1) 2-Burn Hohmann Transfer (2) Exit Program \n";
@@ -77,16 +81,20 @@ int main(int argc, char* argv[])
 
                 if (count == DATA_ELEMENTS_LEN - 1) {
                 
-                    string spacecraftName = elements[0];
-                    int spacecraftMass = stoi(elements[1]);
-                    int currentOrbitalRadius_km = stoi(elements[2]);
-                    string currentOrbitingBody = elements[3];
-
-
+                    spacecraftName = elements[0];
+                    spacecraftMass = stod(elements[1]);
+                    currOrbitalRadius_km = stod(elements[2]);
+                    currentOrbitingBody = elements[3];
+                    currOrbitEccentricity = stod(elements[4]); 
+                    currOrbitInclination = stod(elements[5]);
 
                 }
-            
+                 
             }
+
+            userDataFile.close();
+
+            // now that all necessary user data has been read in, being to gather the necessary class object data for the planet that is being analyzed 
 
         }
             
@@ -98,7 +106,8 @@ int main(int argc, char* argv[])
             break;
 
         default:
-            cout << "ERROR. Please enter a valid input!\n";
+            cout << "ERROR. Please enter a valid input of 1 or 2!\n";
+            return -1;
             break;
 
     }
