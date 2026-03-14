@@ -8,3 +8,11 @@
         
         - Planet objects - made from class in planet.h
 
+
+
+random thoughts:
+
+Data file elements:
+
+<spacecraft name> (delimiter) <mass> (delimiter) <current orbital radius> (delimiter) <orbiting body> 
+
