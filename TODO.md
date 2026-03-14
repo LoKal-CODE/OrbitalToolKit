@@ -14,5 +14,5 @@ random thoughts:
 
 Data file elements:
 
-<spacecraft name> (delimiter) <mass> (delimiter) <current orbital radius> (delimiter) <orbiting body> (delimiter) <orbit eccentricity> (delimiter) <semi-major axis> (delimiter) <inclination>
+<spacecraft name> (delimiter) <mass> (delimiter) <current orbital radius> (delimiter) <orbiting body> (delimiter) <orbit eccentricity> (delimiter) <inclination>
 
