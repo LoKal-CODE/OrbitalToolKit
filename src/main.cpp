@@ -9,6 +9,13 @@
 
 using namespace std;
 
+Planet CreatePlanet(string planetName, double planetMass, double eqRadius, double meRadius, double rotPeriod, double orbPeriod, double escapeVelocity)
+{
+    
+
+
+}
+
 int split(string s, char sep, string words[], int max_words) {
     int count = 0;
     string current = "";
@@ -30,7 +37,7 @@ int split(string s, char sep, string words[], int max_words) {
 
 int main(int argc, char* argv[])
 {
-    
+
     int userDecision;
 
     // variables that deal with taking in and parsing user data from a CSV or TXT file
@@ -95,6 +102,8 @@ int main(int argc, char* argv[])
             userDataFile.close();
 
             // now that all necessary user data has been read in, being to gather the necessary class object data for the planet that is being analyzed 
+
+
 
         }
             
