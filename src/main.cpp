@@ -1,19 +1,56 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip>
 
 #include "../include/orbital.h"
-#include "../include/planet.h"
 
 #define DATA_ELEMENTS_LEN 7
 
 using namespace std;
 
-Planet CreatePlanet(string planetName, double planetMass, double eqRadius, double meRadius, double rotPeriod, double orbPeriod, double escapeVelocity)
+class Planet
 {
-    
 
+    private:
+        string name;
+        double mass;
+        double equitorialRadius;
+        double meanRadius;
+        double rotationalPeriod;
+        double orbitalPeriod;
+        double escapeVelocity;
+        double G;
 
+    public:
+
+        Planet(string planetName, double planetMass, double eqRadius,
+               double meRadius, double rotPeriod, double orbPeriod, double escVelocity, double G);
+
+        // Getters (const because they don't modify the object)
+        string getName() const { return name; }
+        double getMass() const { return mass; }
+        double getEquitorialRadius() const { return equitorialRadius; }
+        double getMeanRadius() const { return meanRadius; }
+        double getRotationalPeriod() const { return rotationalPeriod; }
+        double getOrbitalPeriod() const { return orbitalPeriod; }
+        double getEscapeVelocity() const { return escapeVelocity; }
+        double getG() const { return G; }
+
+};
+
+Planet::Planet(string planetName, double planetMass, double eqRadius,
+               double meRadius, double rotPeriod, double orbPeriod,
+               double escVelocity, double G)
+{
+    name            = planetName;
+    mass            = planetMass;
+    equitorialRadius = eqRadius;
+    meanRadius      = meRadius;
+    rotationalPeriod = rotPeriod;
+    orbitalPeriod   = orbPeriod;
+    escapeVelocity  = escVelocity;
+    this->G         = G;
 }
 
 int split(string s, char sep, string words[], int max_words) {
@@ -38,6 +75,10 @@ int split(string s, char sep, string words[], int max_words) {
 int main(int argc, char* argv[])
 {
 
+    // Create the Earth object
+    Planet Earth("Earth", 6371.0, 5.97e24, 6378.14, 0.997, 365.0, 11.2, 6.67e-11);
+
+    // for the switch-case statment that decides whether to proceed with the Hohmann calculation or exit the program
     int userDecision;
 
     // variables that deal with taking in and parsing user data from a CSV or TXT file
@@ -101,9 +142,15 @@ int main(int argc, char* argv[])
 
             userDataFile.close();
 
-            // now that all necessary user data has been read in, being to gather the necessary class object data for the planet that is being analyzed 
+            currOrbitalRadius_km = 7045.55;
 
+            double earthG = Earth.getG();
+            double earthMass = Earth.getMass();
+            
+            double vvVelo = VisVivaVelocity(earthG, earthMass, currOrbitalRadius_km);
+            VisVivaVelocity(double G, double planetMass, double orbitalRadius)
 
+            cout << "You current orbital velocity is " << fixed << setprecision(4) << vvVelo << " km/s.\n";
 
         }
             
