@@ -148,9 +148,11 @@ int main(int argc, char* argv[])
             double earthMass = Earth.getMass();
             
             double vvVelo = VisVivaVelocity(earthG, earthMass, currOrbitalRadius_km);
-            VisVivaVelocity(double G, double planetMass, double orbitalRadius)
 
             cout << "You current orbital velocity is " << fixed << setprecision(4) << vvVelo << " km/s.\n";
+
+            double semiMajorAxis = SemiMajorAxis(7097.5, 9567.99);
+            cout << "Your semi major axis is " << semiMajorAxis << endl;
 
         }
             
