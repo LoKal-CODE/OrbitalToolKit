@@ -53,7 +53,7 @@ Planet::Planet(string planetName, double planetMass, double eqRadius,
     this->G         = G;
 }
 
-int split(string s, char sep, string words[], int max_words) {
+int split(string s, char sep, string words[], int max_words) { // split function written by Claude, meant to mimic the functionality of the split function provided in the recitation assignments
     int count = 0;
     string current = "";
     for (int i = 0; i < s.length(); i++) {
@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
 {
 
     // Create the Earth object
-    Planet Earth("Earth", 6371.0, 5.97e24, 6378.14, 0.997, 365.0, 11.2, 6.67e-11);
+    Planet Earth("Earth", 6371.0, 5.97e24, 6.37e6, 0.997, 365.0, 11.2, 6.67e-11);
 
     // for the switch-case statment that decides whether to proceed with the Hohmann calculation or exit the program
     int userDecision;
@@ -147,11 +147,10 @@ int main(int argc, char* argv[])
             double earthG = Earth.getG();
             double earthMass = Earth.getMass();
             
-            double vvVelo = VisVivaVelocity(earthG, earthMass, currOrbitalRadius_km);
-
+            double vvVelo = VisVivaVelocity(earthG, earthMass, currOrbitalRadius_km); // this is giving me some issue, diagnose beofre cont.
             cout << "You current orbital velocity is " << fixed << setprecision(4) << vvVelo << " km/s.\n";
 
-            double semiMajorAxis = SemiMajorAxis(7097.5, 9567.99);
+            double semiMajorAxis = SemiMajorAxis(6778.0, 6778.0);
             cout << "Your semi major axis is " << semiMajorAxis << endl;
 
         }

@@ -16,7 +16,7 @@ using namespace std;
 // Vis-Viva function
 double VisVivaVelocity(double G, double planetMass, double orbitalRadius)
 {
-    double orbitalVelocity = sqrt( (2 * G * planetMass) / orbitalRadius );
+    double orbitalVelocity = sqrt( (G * planetMass) / orbitalRadius );
     return orbitalVelocity;
 }
 
