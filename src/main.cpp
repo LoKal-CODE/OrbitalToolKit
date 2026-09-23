@@ -182,7 +182,7 @@ int main(int argc, char* argv[])
 
         default:
             cout << "ERROR. Please enter a valid input of 1 or 2!\n";
-            return -1;
+            return EXIT_FAILURE;
     }
 
     return 0;
