@@ -4,55 +4,11 @@
 #include <iomanip>
 
 #include "../include/orbital.h"
+#include "../include/planet.h"
 
 #define DATA_ELEMENTS_LEN 6  // spacecraftName, mass, orbitalRadius, orbitingBody, eccentricity, inclination
 
 using namespace std;
-
-class Planet
-{
-
-    private:
-        string name;
-        double mass;
-        double equitorialRadius;
-        double meanRadius;
-        double rotationalPeriod;
-        double orbitalPeriod;
-        double escapeVelocity;
-        double G;
-
-    public:
-
-        // Constructor argument order: name, eqRadius, mass, meRadius, rotPeriod, orbPeriod, escVelocity, G
-        Planet(string planetName, double planetMass, double eqRadius,
-               double meRadius, double rotPeriod, double orbPeriod, double escVelocity, double G);
-
-        // Getters (const because they don't modify the object)
-        string getName() const { return name; }
-        double getMass() const { return mass; }
-        double getEquitorialRadius() const { return equitorialRadius; }
-        double getMeanRadius() const { return meanRadius; }
-        double getRotationalPeriod() const { return rotationalPeriod; }
-        double getOrbitalPeriod() const { return orbitalPeriod; }
-        double getEscapeVelocity() const { return escapeVelocity; }
-        double getG() const { return G; }
-
-};
-
-Planet::Planet(string planetName, double planetMass, double eqRadius,
-               double meRadius, double rotPeriod, double orbPeriod,
-               double escVelocity, double G)
-{
-    name             = planetName;
-    mass             = planetMass;
-    equitorialRadius = eqRadius;
-    meanRadius       = meRadius;
-    rotationalPeriod = rotPeriod;
-    orbitalPeriod    = orbPeriod;
-    escapeVelocity   = escVelocity;
-    this->G          = G;
-}
 
 int split(string s, char sep, string words[], int max_words) { // split function written by Claude, meant to mimic the functionality of the split function provided in the recitation assignments
     int count = 0;
@@ -79,7 +35,7 @@ int main(int argc, char* argv[])
     // Earth: mass = 5.97e24 kg, equatorial radius = 6.378e6 m, mean radius = 6.371e6 m
     // rotational period = 0.997 days, orbital period = 365.0 days,
     // escape velocity = 11.2 km/s, G = 6.67e-11 N m^2 kg^-2
-    Planet Earth("Earth", 5.97e24, 6.378e6, 6.371e6, 0.997, 365.0, 11.2, 6.67e-11);
+    Planet Earth("Earth", 5.97e24, 6.378e6, 6.371e6, 0.997, 365.0, 11.2);
 
     // for the switch-case statement that decides whether to proceed with the Hohmann calculation or exit
     int userDecision;
@@ -154,7 +110,7 @@ int main(int argc, char* argv[])
             cin >> targetOrbitalRadius_km;
             double r_final_m = targetOrbitalRadius_km * 1000.0;
 
-            double earthG    = Earth.getG();
+            double earthG    = 6.67e-11;
             double earthMass = Earth.getMass();
 
             // --- Hohmann Transfer Calculations ---
